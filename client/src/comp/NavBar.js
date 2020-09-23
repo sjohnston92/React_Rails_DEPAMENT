@@ -8,7 +8,7 @@ const NavBar =()=> (
   <Nav.Link href="/">Home</Nav.Link>
 </Nav.Item>
 <Nav.Item>
-  <Nav.Link href="/depo">Department Store</Nav.Link>
+  <Nav.Link href="/department">Department Store</Nav.Link>
 </Nav.Item>
 </Nav>
 )

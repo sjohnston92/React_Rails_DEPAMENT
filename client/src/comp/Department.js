@@ -1,14 +1,11 @@
 import React, {useState,useEffect} from 'react';
-import {Container,Card} from 'react-bootstrap';
+import {Container,Card,Button, CardGroup} from 'react-bootstrap';
 import axios from "axios";
+import DepartmentForm from "./DepartmentForm"
 
 
 const Department = () => {
-  const [departments,setDepartments] = useState([
-    {id:1, name:"Corky Things", description:"These are just fun"},
-    {id:2, name:"Fancy Things", description:"Soo fancy"},
-    {id:3, name:"Shiny Things", description:"well would you look at that"},
-  ]);
+  const [departments,setDepartments] = useState([]);
 
   useEffect(() => {
     // axios call 
@@ -25,11 +22,16 @@ const Department = () => {
 
   const renderDepartments = () => {
     return departments.map((department) =>(
-
+      <Card>
       <div key={department.id}>
           <h4>{department.name}</h4>
           <p>{department.description}</p>
+          <br />
+          <Button variant="outline-warning">Edit</Button>
+          <Button variant="outline-danger">Delete</Button>
+          <br />
       </div>
+      </Card>
 
     ));
     };
@@ -40,7 +42,9 @@ const Department = () => {
       <br />
       <h4>Where you wildest Dreams come true</h4>
       <br />
-        <Card>{renderDepartments()}</Card>
+      <DepartmentForm />
+      <br />
+       <CardGroup>{renderDepartments()}</CardGroup>
 
 
 
