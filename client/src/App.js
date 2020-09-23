@@ -1,9 +1,9 @@
 import React, { Fragment, } from 'react';
 import { Route, Switch, } from 'react-router-dom';
-import Home from './Samples/Home';
-import About from './Samples/About';
-import NoMatch from './Samples/NoMatch';
-import NavBar from './Samples/NavBar';
+import Home from './comp/Home';
+import Department from './comp/Department';
+import NoMatch from './comp/NoMatch';
+import NavBar from './comp/NavBar';
 
 
 import './App.css';
@@ -15,8 +15,8 @@ const App = () => (
     <br />
     <Container>
       <Switch>
-        <Route exact path="/home" component={Home} />
-        <Route path="/about" component={About} />
+        <Route exact path="/" component={Home} />
+        <Route path="/depo" component={Department} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
