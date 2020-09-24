@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Card} from 'react-bootstrap';
+import {Card,Button} from 'react-bootstrap';
+import Item from './Item'
 
 
 const DepartmentView = ({history,match}) => {
@@ -17,13 +17,31 @@ const DepartmentView = ({history,match}) => {
      alert("Sorry, try again");
       });
   }, []);
+
+
+
+
+  function renderItems(){
+    return department.items.map((i) =>{
+    return(
+        <Item
+        key={i.id}
+        {...i}
+        departmentId={department.id}
+        />
+    )
+    });
+  }
   
   return(
-  <Card>
+  <Card border="primary">
   <Card.Title>{department.name}</Card.Title>
   <Card.Body>
-    <h1>Hello</h1>
-  </Card.Body>
+    <Item />
+    {renderItems}
+    <Button>Create Item</Button>
+
+    </Card.Body>
   </Card>
   )
 };

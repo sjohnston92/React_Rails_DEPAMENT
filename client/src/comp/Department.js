@@ -24,7 +24,7 @@ const Department = () => {
 
   const renderDepartments = () => {
     return departments.map((department) =>(
-      <Card>
+      <Card border="success">
       <div key={department.id}>
           <Link to={`/departments/${department.id}`}><h4>{department.name}</h4></Link>
           <p>{department.description}</p>
