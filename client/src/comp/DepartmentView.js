@@ -6,6 +6,7 @@ import Item from './Item'
 
 const DepartmentView = ({history,match}) => {
   const[department,setDepartment]=useState({});
+  const[item,setItem]=useState([]);
 
   useEffect(() => {
     axios.
@@ -22,14 +23,24 @@ const DepartmentView = ({history,match}) => {
 
 
   function renderItems(){
-    return department.items.map((i) =>{
-    return(
+    if (!department.items) {
+      return; // breaks out of function
+    }
+    if (department.items.length === 0) {
+      return <p>NO Items</p>;
+    }
+      return item.map((i) =>{
+      return(
+        <div>
         <Item
         key={i.id}
         {...i}
         departmentId={department.id}
         />
-    )
+        <Button variant="outline-warning">Edit</Button>
+        <Button variant="outline-danger">Delete</Button>
+        </div>
+      )
     });
   }
   
@@ -38,7 +49,8 @@ const DepartmentView = ({history,match}) => {
   <Card.Title>{department.name}</Card.Title>
   <Card.Body>
     <Item />
-    {renderItems}
+    {renderItems()}
+    <br />
     <Button>Create Item</Button>
 
     </Card.Body>

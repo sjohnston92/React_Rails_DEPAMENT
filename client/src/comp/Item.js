@@ -3,7 +3,7 @@ import Axios from "axios";
 import {Button} from 'react-bootstrap';
 
 
-const Item = ({name,price,id}) => {
+const Item = ({name,price,departmentId}) => {
   
 
   const renderItem = () =>{
@@ -12,6 +12,7 @@ const Item = ({name,price,id}) => {
       <div>
       <p>{name}</p>
      <p>{price}</p>
+     <br />
       </div>
       
     )
