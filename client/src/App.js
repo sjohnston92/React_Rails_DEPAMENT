@@ -4,6 +4,7 @@ import Home from './comp/Home';
 import Department from './comp/Department';
 import NoMatch from './comp/NoMatch';
 import NavBar from './comp/NavBar';
+import DepartmentView from './comp/DepartmentView'
 
 
 import './App.css';
@@ -16,7 +17,8 @@ const App = () => (
     <Container>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/departments" component={Department} />
+        <Route exact path="/departments" component={Department} />
+        <Route exact path="/departments/:id" component={DepartmentView} />
         <Route component={NoMatch} />
       </Switch>
     </Container>

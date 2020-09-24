@@ -1,7 +1,9 @@
 import React, {useState,useEffect} from 'react';
 import {Container,Card,Button, CardGroup} from 'react-bootstrap';
 import axios from "axios";
-import DepartmentForm from "./DepartmentForm"
+import DepartmentForm from "./DepartmentForm";
+import { Link, } from "react-router-dom";
+
 
 
 const Department = () => {
@@ -24,7 +26,7 @@ const Department = () => {
     return departments.map((department) =>(
       <Card>
       <div key={department.id}>
-          <h4>{department.name}</h4>
+          <Link to={`/departments/${department.id}`}><h4>{department.name}</h4></Link>
           <p>{department.description}</p>
           <br />
           <Button variant="outline-warning">Edit</Button>
